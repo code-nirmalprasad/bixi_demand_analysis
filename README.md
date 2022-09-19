@@ -10,3 +10,4 @@ The data used for the analysis was generated in the year 2018 & is available for
 There are two objectives for this data science project. Firstly, visualization of the demand patterns on week-days & week-ends which is accomplished using Tableau. Secondly, to build a predictive model that allows BIXI to predict the demand of bikes by hour of the day. This is achieved using Alteryx.
 
 The attached Tableau packaged workbooks were used for analysis & visualizations and Alteryx workflow was used for the predictive modelling.
+The 4 zipped files "OD_2018-merged-3-0?.zip" need to be unzipped and merged sequentially to form "OD_2018-merged-3.csv". The merged csv file should be fed to the Tableau & Alteryx workflows.
