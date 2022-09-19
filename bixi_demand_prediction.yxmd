@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AlteryxDocument yxmdVer="2021.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">BIXI Datasets 2018\OD_2018-merged-3.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>OD_2018-merged-3.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="start_date_formatted" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="start_station_code" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="end_date_formatted" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="end_station_code" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="duration_sec" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="is_member" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="start_date_year" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="start_date_month" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="start_date_date" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="start_date_day" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="start_date_hour" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="start_date_hour_formatted" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+            <Field name="weekend_ind" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\BIXI Datasets 2018\OD_2018-merged-3.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="162" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="start_date_month" action="GroupBy" rename="start_date_month" />
+            <SummarizeField field="start_date_date" action="GroupBy" rename="start_date_date" />
+            <SummarizeField field="start_date_hour" action="GroupBy" rename="start_date_hour" />
+            <SummarizeField field="duration_sec" action="Count" rename="Count" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="start_date_month" size="254" source="Summarize: GroupBy - start_date_month" type="V_String" />
+            <Field name="start_date_date" size="254" source="Summarize: GroupBy - start_date_date" type="V_String" />
+            <Field name="start_date_hour" size="254" source="Summarize: GroupBy - start_date_hour" type="V_String" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="start_date_month" order="Asc" />
+            <Field field="start_date_date" order="Asc" />
+            <Field field="start_date_hour" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="66" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">Temperature Dataset 2018\Temperature Dataset 2018.csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>,</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Temperature Dataset 2018.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date/Time" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Year" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Month" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Day" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Time" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Temp (°C)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Dew Point Temp (°C)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Rel Hum (%)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Wind Dir (10s deg)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Wind Spd (km/h)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Stn Press (kPa)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="162" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>Date/Time</InputFieldName>
+          <Language>English</Language>
+          <Format>yyyy-MM-dd hh:mm</Format>
+          <OutputFieldName>Date/Time Formatted</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert Date/Time From:
+Custom</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date/Time" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Year" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Month" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Day" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Time" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Temp (°C)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Dew Point Temp (°C)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Rel Hum (%)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Wind Dir (10s deg)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Wind Spd (km/h)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Stn Press (kPa)" size="254" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="V_String" />
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="246" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="Date/Time" selected="True" />
+            <Field field="Year" selected="True" />
+            <Field field="Month" selected="True" />
+            <Field field="Day" selected="True" />
+            <Field field="Time" selected="True" />
+            <Field field="Temp (°C)" selected="True" />
+            <Field field="Dew Point Temp (°C)" selected="True" />
+            <Field field="Rel Hum (%)" selected="True" />
+            <Field field="Wind Dir (10s deg)" selected="True" />
+            <Field field="Wind Spd (km/h)" selected="True" />
+            <Field field="Stn Press (kPa)" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date/Time" size="16" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Year" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Int16" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="330" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Date/Time" selected="False" />
+            <SelectField field="Date/Time Formatted" selected="True" />
+            <SelectField field="Year" selected="True" type="String" size="5" />
+            <SelectField field="Month" selected="True" />
+            <SelectField field="Day" selected="True" />
+            <SelectField field="Time" selected="True" />
+            <SelectField field="Temp (°C)" selected="True" />
+            <SelectField field="Dew Point Temp (°C)" selected="True" />
+            <SelectField field="Rel Hum (%)" selected="True" />
+            <SelectField field="Wind Dir (10s deg)" selected="True" />
+            <SelectField field="Wind Spd (km/h)" selected="True" />
+            <SelectField field="Stn Press (kPa)" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="414" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" field="hour" size="1073741823" type="V_WString" />
+            <FormulaField expression="DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" field="day_of_the_week" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>hour = DateTimeFormat([Date/Time Formatted], "%H")
+
+
+day_of_the_week = DateTimeF...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="510" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" field="weekend_ind" size="1" type="Byte" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>weekend_ind = IF ([day_of_the_week]=="Sunday" OR [day_of_the_week]=="Saturday" )...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+            <Field name="weekend_ind" source="Formula: IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="582" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="start_date_month" />
+            <Field field="start_date_date" />
+            <Field field="start_date_hour" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Month" />
+            <Field field="Day" />
+            <Field field="hour" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Left_start_date_month" selected="False" input="Left_" />
+                <SelectField field="Left_start_date_date" selected="False" input="Left_" />
+                <SelectField field="Left_start_date_hour" selected="False" input="Left_" />
+                <SelectField field="Right_Date/Time Formatted" selected="True" input="Right_" />
+                <SelectField field="Right_Year" selected="True" input="Right_" />
+                <SelectField field="Right_Month" selected="True" input="Right_" />
+                <SelectField field="Right_Day" selected="True" input="Right_" />
+                <SelectField field="Right_Time" selected="True" input="Right_" />
+                <SelectField field="Right_Temp (°C)" selected="True" input="Right_" />
+                <SelectField field="Right_Dew Point Temp (°C)" selected="True" input="Right_" />
+                <SelectField field="Right_Rel Hum (%)" selected="True" input="Right_" />
+                <SelectField field="Right_Wind Dir (10s deg)" selected="True" input="Right_" />
+                <SelectField field="Right_Wind Spd (km/h)" selected="True" input="Right_" />
+                <SelectField field="Right_Stn Press (kPa)" selected="True" input="Right_" />
+                <SelectField field="Right_hour" selected="True" input="Right_" />
+                <SelectField field="Right_day_of_the_week" selected="True" input="Right_" />
+                <SelectField field="Right_weekend_ind" selected="True" input="Right_" />
+                <SelectField field="Left_Count" selected="True" input="Left_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="start_date_month" size="254" source="Summarize: GroupBy - start_date_month" type="V_String" />
+            <Field name="start_date_date" size="254" source="Summarize: GroupBy - start_date_date" type="V_String" />
+            <Field name="start_date_hour" size="254" source="Summarize: GroupBy - start_date_hour" type="V_String" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="start_date_month" />
+            <Field field="start_date_date" />
+            <Field field="start_date_hour" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Join">
+          <RecordInfo>
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+            <Field name="weekend_ind" source="Formula: IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" type="Byte" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+            <Field name="weekend_ind" source="Formula: IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" type="Byte" />
+          </RecordInfo>
+          <SortInfo noProgress="True">
+            <Field field="Month" />
+            <Field field="Day" />
+            <Field field="hour" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="Linear_Regression">
+        <Position x="906" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="curPage">Home</Value>
+          <Value name="curTab">advanced</Value>
+          <Value name="standardize_pred">True</Value>
+          <Value name="internal_cv">True</Value>
+          <Value name="display_graphs">True</Value>
+          <Value name="set_seed_internal_cv">True</Value>
+          <Value name="set_seed_external_cv">True</Value>
+          <Value name="lambda_1se">True</Value>
+          <Value name="lambda_min">False</Value>
+          <Value name="Model Name">Linear_Regression_22</Value>
+          <Value name="Y Var">Count</Value>
+          <Value name="X Vars">Month,Temp (°C),Rel Hum (%),hour,weekend_ind</Value>
+          <Value name="Omit Constant">False</Value>
+          <Value name="Use Weights">False</Value>
+          <Value name="Weight Vec" />
+          <Value name="regularization">False</Value>
+          <Value name="alpha">0.5</Value>
+          <Value name="nfolds">5</Value>
+          <Value name="lambda">lambda_1se</Value>
+          <Value name="seed_internal_cv">1</Value>
+          <Value name="lambda_no_cv">0.5</Value>
+          <Value name="external_cv">False</Value>
+          <Value name="nfolds_external">5</Value>
+          <Value name="numberTrials">3</Value>
+          <Value name="external_seed_value">1</Value>
+          <Value name="graph.resolution">1x</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Linear_Regression_22</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Name" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Object" size="2147483647" source="R-DATA:SERIAL" type="Blob" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Reports">
+          <RecordInfo>
+            <Field name="Desc" size="64" source="Formula: (Multiple Sources)" type="V_String" />
+            <Field name="Report" size="2147483647" source="Report: (Multiple Sources)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Interactive Report">
+          <RecordInfo>
+            <Field name="Text" size="2147483647" source="Report:Text:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Linear_Regression/Supporting_Macros/Linear_Regression.yxmc" EngineDll="Macro" EngineDllEntryPoint="Linear_Regression/Supporting_Macros/Linear_Regression.yxmc" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings>
+        <Position x="786" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="estimation pct">70</Value>
+          <Value name="validation pct">30</Value>
+          <Value name="rand seed">1</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Estimation">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+            <Field name="weekend_ind" source="Formula: IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" type="Byte" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Validation">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+            <Field name="weekend_ind" source="Formula: IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" type="Byte" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Holdout">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+            <Field name="weekend_ind" source="Formula: IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" type="Byte" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Predictive Tools\Create_Samples.yxmc" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+        <Position x="690" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldName>RecordID</FieldName>
+          <StartValue>1</StartValue>
+          <FieldType>Int32</FieldType>
+          <FieldSize>6</FieldSize>
+          <Position>0</Position>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="RecordID" source="RecordID: Starting Value=1" type="Int32" />
+            <Field name="Date/Time Formatted" source="DateTime: To yyyy-MM-dd hh:mm" type="DateTime" />
+            <Field name="Year" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Month" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Day" size="2" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Time" size="5" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="String" />
+            <Field name="Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Dew Point Temp (°C)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="Rel Hum (%)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Dir (10s deg)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Wind Spd (km/h)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Byte" />
+            <Field name="Stn Press (kPa)" source="File: C:\Users\mailn\OneDrive\Desktop\Final Business Case\Temperature Dataset 2018\Temperature Dataset 2018.csv" type="Double" />
+            <Field name="hour" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%H&quot;)&#xA;&#xA;" type="V_WString" />
+            <Field name="day_of_the_week" size="1073741823" source="Formula: DateTimeFormat([Date/Time Formatted], &quot;%A&quot;)" type="V_WString" />
+            <Field name="weekend_ind" source="Formula: IF ([day_of_the_week]==&quot;Sunday&quot; OR [day_of_the_week]==&quot;Saturday&quot; ) THEN&#xA;1&#xA;ELSE&#xA;0&#xA;ENDIF" type="Byte" />
+            <Field name="Count" source="Summarize: Count" type="Int64" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="RecordID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1002" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\mailn\AppData\Local\Temp\Engine_19136_bc13f10c7664447ead2807beb7cec376_\Engine_4168_a61cbe11b0d7420caaf176af50e1df1b_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1002" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\mailn\AppData\Local\Temp\Engine_19136_bc13f10c7664447ead2807beb7cec376_\Engine_4168_ae86a7049faa4744b3e21372036d5f6a_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="Decision_Tree">
+        <Position x="906" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="curPage">Home</Value>
+          <Value name="curTab">model</Value>
+          <Value name="curToggle">toggle-main</Value>
+          <Value name="display.static">True</Value>
+          <Value name="set_seed_cv">True</Value>
+          <Value name="showClassificationCV">False</Value>
+          <Value name="showWhenTreePlotAvailable">True</Value>
+          <Value name="showWhenAlgorithmAvailable">False</Value>
+          <Value name="use.gini">True</Value>
+          <Value name="use.information">False</Value>
+          <Value name="usesurrogate.0">True</Value>
+          <Value name="usesurrogate.1">False</Value>
+          <Value name="usesurrogate.2">False</Value>
+          <Value name="total.correct">True</Value>
+          <Value name="percent.correct">False</Value>
+          <Value name="model_type">auto</Value>
+          <Value name="auto">True</Value>
+          <Value name="classification">False</Value>
+          <Value name="regression">False</Value>
+          <Value name="tree_summary">Counts</Value>
+          <Value name="Counts">True</Value>
+          <Value name="Proportions">False</Value>
+          <Value name="tree_plot_size">tree.inches</Value>
+          <Value name="tree.inches">True</Value>
+          <Value name="tree.centimeters">False</Value>
+          <Value name="pruning_plot_size">prune.inches</Value>
+          <Value name="prune.inches">True</Value>
+          <Value name="prune.centimeters">False</Value>
+          <Value name="Model Name">Decision_Tree_27</Value>
+          <Value name="Y Var">Count</Value>
+          <Value name="X Vars">Month,Temp (°C),Rel Hum (%),hour,weekend_ind</Value>
+          <Value name="model.algorithm">rpart</Value>
+          <Value name="posClass">
+          </Value>
+          <Value name="use.weights">False</Value>
+          <Value name="select.weights" />
+          <Value name="splitting_criteria">use.gini</Value>
+          <Value name="surrogate_use">usesurrogate.0</Value>
+          <Value name="surrogate_split_criteria">total.correct</Value>
+          <Value name="min.split">20</Value>
+          <Value name="min.bucket">7</Value>
+          <Value name="xval.folds">10</Value>
+          <Value name="max.depth">20</Value>
+          <Value name="max.bins">
+          </Value>
+          <Value name="set_cp">False</Value>
+          <Value name="cp">0</Value>
+          <Value name="rules">False</Value>
+          <Value name="bands_check">False</Value>
+          <Value name="bands">10</Value>
+          <Value name="subset">False</Value>
+          <Value name="winnow">False</Value>
+          <Value name="GlobalPruning">False</Value>
+          <Value name="fuzzyThreshold">False</Value>
+          <Value name="earlyStopping">False</Value>
+          <Value name="trials">1</Value>
+          <Value name="CF">0.25</Value>
+          <Value name="minCases">2</Value>
+          <Value name="sample">0</Value>
+          <Value name="seed">1</Value>
+          <Value name="use_cv">False</Value>
+          <Value name="numberFolds">5</Value>
+          <Value name="numberTrials">3</Value>
+          <Value name="stratified">False</Value>
+          <Value name="cv_seed">1</Value>
+          <Value name="tree.plot">False</Value>
+          <Value name="Branch Dist">False</Value>
+          <Value name="tree.in.w">5.5</Value>
+          <Value name="tree.in.h">5.5</Value>
+          <Value name="tree.cm.w">13</Value>
+          <Value name="tree.cm.h">14.95</Value>
+          <Value name="tree.graph.resolution">1x</Value>
+          <Value name="tree.pointsize">8</Value>
+          <Value name="prune.plot">False</Value>
+          <Value name="prune.in.w">5.5</Value>
+          <Value name="prune.in.h">5.5</Value>
+          <Value name="prune.cm.w">13</Value>
+          <Value name="prune.cm.h">14.95</Value>
+          <Value name="prune.graph.resolution">1x</Value>
+          <Value name="prune.pointsize">10</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Decision_Tree_27</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Reports">
+          <RecordInfo>
+            <Field name="Desc" size="64" source="Formula: (Multiple Sources)" type="V_String" />
+            <Field name="Report" size="2147483647" source="Report: (Multiple Sources)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Name" size="1073741823" source="R-DATA:" type="V_WString" />
+            <Field name="Object" size="2147483647" source="R-DATA:SERIAL" type="Blob" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Interactive">
+          <RecordInfo>
+            <Field name="Text" size="2147483647" source="Report:Text:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Decision_Tree/Supporting_Macros/Decision_Tree.yxmc" EngineDll="Macro" EngineDllEntryPoint="Decision_Tree/Supporting_Macros/Decision_Tree.yxmc" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1002" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\mailn\AppData\Local\Temp\Engine_19136_bc13f10c7664447ead2807beb7cec376_\Engine_4168_042a021c70bc456ca013ed79f133647e_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1002" y="354" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\mailn\AppData\Local\Temp\Engine_19136_bc13f10c7664447ead2807beb7cec376_\Engine_4168_3784ef18822e4be5aa76c26b13c1d1be_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Report</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="20" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="20" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Join" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Reports" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Interactive Report" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Estimation" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Estimation" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Reports" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Interactive" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>bixi_demand_prediction</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="b58bcb42-68c1-4963-a511-bc2a0f59e169" />
+      <Telemetry>
+        <PreviousWorkflowId value="1606d546-40bf-4a73-a61e-4b13b82470b1" />
+        <OriginWorkflowId value="3777272c-3fc4-46ce-bf60-73773fdcfab8" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
